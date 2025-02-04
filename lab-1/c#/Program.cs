@@ -1,3 +1,11 @@
+/**
+* Done by:
+ * Student Name: Stanislav Buket
+ * Variant: 3
+ * Student Group: 121
+ * Lab 1.1
+ */
+
 using System;
 
 namespace StringManipulatorApp

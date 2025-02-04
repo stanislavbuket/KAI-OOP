@@ -1,30 +1,32 @@
+/**
+* Done by:
+ * Student Name: Stanislav Buket
+ * Variant: 3
+ * Student Group: 121
+ * Lab 1.1
+ */
+
 #include <iostream>
-#include "Triangle.h"
+#include <stdexcept>
+#include "StringManipulator.h"
 
 int main()
 {
-    // Змінні для зчитування координат
-    double x1, y1, x2, y2, x3, y3;
+    std::string input;
+    std::cout << "Введіть рядок (тільки цифрові символи): ";
+    std::cin >> input;
 
-    std::cout << "Введіть координати трикутника (x1, y1, x2, y2, x3, y3): ";
-    std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+    try {
+        // Створення об'єкта класу StringManipulator
+        StringManipulator strManip(input);
 
-    // Створення об'єкта трикутника з введеними координатами
-    Triangle triangle(x1, y1, x2, y2, x3, y3);
+        std::cout << "\nВведений рядок: " << strManip.getValue() << std::endl;
 
-    // Виведення збережених координат
-    std::cout << "\nТрикутник має координати:\n";
-    std::cout << "  A(" << triangle.getX1() << ", " << triangle.getY1() << ")\n";
-    std::cout << "  B(" << triangle.getX2() << ", " << triangle.getY2() << ")\n";
-    std::cout << "  C(" << triangle.getX3() << ", " << triangle.getY3() << ")\n";
-
-    // Обчислення та виведення периметра
-    double perimeter = triangle.getPerimeter();
-    std::cout << "\nПериметр: " << perimeter << std::endl;
-
-    // Обчислення та виведення площі
-    double area = triangle.getArea();
-    std::cout << "Площа: " << area << std::endl;
+        std::cout << "Довжина рядка: " << strManip.getLength() << std::endl;
+    }
+    catch (const std::invalid_argument& e) {
+        std::cerr << "Помилка: " << e.what() << std::endl;
+    }
 
     return 0;
 }
