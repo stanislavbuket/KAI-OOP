@@ -1,2 +1,3 @@
-dotnet new console -n TriangleApp
+dotnet restore  
+dotnet build  
 dotnet run
